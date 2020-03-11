@@ -1,0 +1,36 @@
+.DIV-btn-circular {
+    width: 120px;
+    height: 120px;
+    background: rgb(50, 50, 50);
+    border-radius: 50%;
+    line-height: 120px;
+    text-align: center;
+    font-size: smaller;
+  }
+  .com{
+    display: inline-block;
+    border: 1px dashed #333;   
+    padding: 4px;
+    width: auto;
+    border-radius: 50%;
+    color: antiquewhite;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: no-repeat center;
+    background-size: cover;
+}
+.centro {
+    height: 100px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+  
