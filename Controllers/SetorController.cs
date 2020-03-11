@@ -15,18 +15,18 @@ namespace Carrinho.Controllers
     {
         private readonly CarrinhoContext _context;
 
-         /* private readonly SetorDAO setorDAO; */
+        private readonly SetorDAO _setorDAO;
 
         public SetorController()
         {
             _context = new CarrinhoContext();
-            /* setorDAO = new SetorDAO(); */
+            _setorDAO = new SetorDAO();
         }
 
         // GET: Setor
-        public async Task<IActionResult> Index()
+        public async  Task<IActionResult> Index()
         {
-            return View( await _context.Setor.ToListAsync());
+            return View( await _setorDAO.Setores());
         }
 
         // GET: Setor/Details/5
@@ -37,8 +37,8 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var setor = await _context.Setor
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var setor = await _setorDAO.getSetorById(id);
+
             if (setor == null)
             {
                 return NotFound();
@@ -58,12 +58,11 @@ namespace Carrinho.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Setor setor)
+        public IActionResult Create([Bind("Id,Nome")] Setor setor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(setor);
-                await _context.SaveChangesAsync();
+                _setorDAO.Add(setor);
                 return RedirectToAction(nameof(Index));
             }
             return View(setor);
@@ -77,7 +76,7 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var setor = await _context.Setor.FindAsync(id);
+            var setor = await _setorDAO.getSetorById(id);
             if (setor == null)
             {
                 return NotFound();
@@ -90,7 +89,7 @@ namespace Carrinho.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Setor setor)
+        public IActionResult Edit(int id, [Bind("Id,Nome")] Setor setor)
         {
             if (id != setor.Id)
             {
@@ -101,12 +100,11 @@ namespace Carrinho.Controllers
             {
                 try
                 {
-                    _context.Update(setor);
-                    await _context.SaveChangesAsync();
+                 _setorDAO.Update(setor);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SetorExists(setor.Id))
+                    if (!_setorDAO.SetorExists(setor.Id))
                     {
                         return NotFound();
                     }
@@ -128,8 +126,7 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var setor = await _context.Setor
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var setor = await _setorDAO.getSetorById(id);;
             if (setor == null)
             {
                 return NotFound();
@@ -141,17 +138,12 @@ namespace Carrinho.Controllers
         // POST: Setor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var setor = await _context.Setor.FindAsync(id);
-            _context.Setor.Remove(setor);
-            await _context.SaveChangesAsync();
+            _setorDAO.Remove(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SetorExists(int id)
-        {
-            return _context.Setor.Any(e => e.Id == id);
-        }
+        
     }
 }
