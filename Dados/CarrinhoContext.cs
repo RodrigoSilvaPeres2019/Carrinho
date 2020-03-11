@@ -5,9 +5,12 @@ namespace Carrinho.Dados
 {
     public class CarrinhoContext : DbContext
     {
-        public CarrinhoContext(DbContextOptions<CarrinhoContext> options) : base(options)
+        /* public CarrinhoContext(DbContextOptions<CarrinhoContext> options) : base(options)
         {
-        }
+        } */
+       /*  public CarrinhoContext()
+        {     
+        } */
 
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Setor> Setor { get; set; }
@@ -16,6 +19,10 @@ namespace Carrinho.Dados
 
         public DbSet<CarrinhoProdutos> CarrinhoProduto { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=Carrinho.db");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
             modelBuilder.ApplyConfiguration(new SetorConfiguration());

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Carrinho.Dados;
 using Carrinho.Models;
+using Carrinho.DAO;
 
 namespace Carrinho.Controllers
 {
@@ -14,15 +15,18 @@ namespace Carrinho.Controllers
     {
         private readonly CarrinhoContext _context;
 
-        public SetorController(CarrinhoContext context)
+         /* private readonly SetorDAO setorDAO; */
+
+        public SetorController()
         {
-            _context = context;
+            _context = new CarrinhoContext();
+            /* setorDAO = new SetorDAO(); */
         }
 
         // GET: Setor
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Setor.ToListAsync());
+            return View( await _context.Setor.ToListAsync());
         }
 
         // GET: Setor/Details/5

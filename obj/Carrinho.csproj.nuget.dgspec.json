@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Carrinho.csproj": {}
+    "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj": {}
   },
   "projects": {
-    "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Carrinho.csproj": {
+    "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Carrinho.csproj",
+        "projectUniqueName": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj",
         "projectName": "Carrinho",
-        "projectPath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Carrinho.csproj",
+        "projectPath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj",
         "packagesPath": "/home/rodrigo_peres/.nuget/packages/",
-        "outputPath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/obj/",
+        "outputPath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/rodrigo_peres/.nuget/NuGet/NuGet.Config"

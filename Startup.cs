@@ -28,8 +28,8 @@ namespace Carrinho
         {
             services.AddControllersWithViews();
             
-            services.AddDbContext<CarrinhoContext>(options =>
-            options.UseSqlite(Configuration.GetConnectionString("CarrinhoContext")));
+            /* services.AddDbContext<CarrinhoContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("CarrinhoContext"))); */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

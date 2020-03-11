@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Carrinho.csproj",
+  "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,93 +20521,93 @@
   "RootNamespace": "Carrinho",
   "Documents": [
     {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Setor/Delete.cshtml",
-      "TargetPath": "Views\\Setor\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Produto/Index.cshtml",
-      "TargetPath": "Views\\Produto\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Setor/Details.cshtml",
-      "TargetPath": "Views\\Setor\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Produto/Create.cshtml",
-      "TargetPath": "Views\\Produto\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Produto/Delete.cshtml",
-      "TargetPath": "Views\\Produto\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Setor/Create.cshtml",
-      "TargetPath": "Views\\Setor\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Setor/Index.cshtml",
-      "TargetPath": "Views\\Setor\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Setor/Edit.cshtml",
-      "TargetPath": "Views\\Setor\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Produto/Edit.cshtml",
-      "TargetPath": "Views\\Produto\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Comprar/Index.cshtml",
-      "TargetPath": "Views\\Comprar\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Produto/Details.cshtml",
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Details.cshtml",
       "TargetPath": "Views\\Produto\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Home/Index.cshtml",
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/POC1/Carrinho/Carrinho/Views/Shared/_Layout.cshtml",
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Edit.cshtml",
+      "TargetPath": "Views\\Produto\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Create.cshtml",
+      "TargetPath": "Views\\Produto\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Details.cshtml",
+      "TargetPath": "Views\\Setor\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Index.cshtml",
+      "TargetPath": "Views\\Produto\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Delete.cshtml",
+      "TargetPath": "Views\\Produto\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Edit.cshtml",
+      "TargetPath": "Views\\Setor\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Create.cshtml",
+      "TargetPath": "Views\\Setor\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Delete.cshtml",
+      "TargetPath": "Views\\Setor\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Index.cshtml",
+      "TargetPath": "Views\\Setor\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Comprar/Index.cshtml",
+      "TargetPath": "Views\\Comprar\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

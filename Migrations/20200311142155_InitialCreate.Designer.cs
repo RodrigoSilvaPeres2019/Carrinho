@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carrinho.Migrations
 {
     [DbContext(typeof(CarrinhoContext))]
-    [Migration("20200309143658_InitialCreate")]
+    [Migration("20200311142155_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
