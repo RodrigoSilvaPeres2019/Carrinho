@@ -8,9 +8,8 @@ namespace Carrinho.Dados
     {
         public void Configure(EntityTypeBuilder<CarrinhoProdutos> builder)
         {
-            builder.Property<int>("CarrinhoId").IsRequired();
-            builder.Property<int>("ProdutoId").IsRequired();
-            builder.HasKey("CarrinhoId", "ProdutoId");
+            
+            builder.HasKey(cp => new {cp.ProdutoId, cp.CarrinhoId});
 
             builder
                 .HasOne(cp => cp.Carrinho)

@@ -2,21 +2,20 @@
 
 namespace Carrinho.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CarrinhoCompras",
+                name: "Compras",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    TotalCompra = table.Column<decimal>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarrinhoCompras", x => x.Id);
+                    table.PrimaryKey("PK_Compras", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,12 +57,12 @@ namespace Carrinho.Migrations
                 name: "CarrinhoProduto",
                 columns: table => new
                 {
-                    CarrinhoId = table.Column<int>(nullable: false),
-                    ProdutoId = table.Column<int>(nullable: false)
+                    ProdutoId = table.Column<int>(nullable: false),
+                    CarrinhoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarrinhoProduto", x => new { x.CarrinhoId, x.ProdutoId });
+                    table.PrimaryKey("PK_CarrinhoProduto", x => new { x.ProdutoId, x.CarrinhoId });
                     table.ForeignKey(
                         name: "FK_CarrinhoProduto_Produto_CarrinhoId",
                         column: x => x.CarrinhoId,
@@ -71,17 +70,17 @@ namespace Carrinho.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CarrinhoProduto_CarrinhoCompras_ProdutoId",
+                        name: "FK_CarrinhoProduto_Compras_ProdutoId",
                         column: x => x.ProdutoId,
-                        principalTable: "CarrinhoCompras",
+                        principalTable: "Compras",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarrinhoProduto_ProdutoId",
+                name: "IX_CarrinhoProduto_CarrinhoId",
                 table: "CarrinhoProduto",
-                column: "ProdutoId");
+                column: "CarrinhoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produto_SetorId",
@@ -98,7 +97,7 @@ namespace Carrinho.Migrations
                 name: "Produto");
 
             migrationBuilder.DropTable(
-                name: "CarrinhoCompras");
+                name: "Compras");
 
             migrationBuilder.DropTable(
                 name: "Setor");

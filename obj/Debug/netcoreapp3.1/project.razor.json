@@ -20581,6 +20581,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Comprar/Add.cshtml",
+      "TargetPath": "Views\\Comprar\\Add.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Setor/Create.cshtml",
       "TargetPath": "Views\\Setor\\Create.cshtml",
       "FileKind": "mvc"

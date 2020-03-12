@@ -16,35 +16,30 @@ namespace Carrinho.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2");
 
-            modelBuilder.Entity("Carrinho.Models.CarrinhoCompras", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("TotalCompra")
-                        .HasColumnName("TotalCompra")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CarrinhoCompras");
-                });
-
             modelBuilder.Entity("Carrinho.Models.CarrinhoProdutos", b =>
                 {
-                    b.Property<int>("CarrinhoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("ProdutoId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CarrinhoId", "ProdutoId");
+                    b.Property<int>("CarrinhoId")
+                        .HasColumnType("INTEGER");
 
-                    b.HasIndex("ProdutoId");
+                    b.HasKey("ProdutoId", "CarrinhoId");
+
+                    b.HasIndex("CarrinhoId");
 
                     b.ToTable("CarrinhoProduto");
+                });
+
+            modelBuilder.Entity("Carrinho.Models.ComprasEfetuadas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("Carrinho.Models.Produto", b =>
@@ -100,7 +95,7 @@ namespace Carrinho.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Carrinho.Models.CarrinhoCompras", "Carrinho")
+                    b.HasOne("Carrinho.Models.ComprasEfetuadas", "Carrinho")
                         .WithMany("ListaProdutos")
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)

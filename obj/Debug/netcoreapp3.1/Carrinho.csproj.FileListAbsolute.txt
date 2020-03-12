@@ -346,3 +346,4 @@
 /home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/Debug/netcoreapp3.1/staticwebassets/Carrinho.StaticWebAssets.xml
 /home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/Debug/netcoreapp3.1/Carrinho.dll
 /home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/Debug/netcoreapp3.1/Carrinho.pdb
+/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/Debug/netcoreapp3.1/Razor/Views/Comprar/Add.cshtml.g.cs
