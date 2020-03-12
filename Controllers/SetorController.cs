@@ -13,20 +13,17 @@ namespace Carrinho.Controllers
 {
     public class SetorController : Controller
     {
-        private readonly CarrinhoContext _context;
-
         private readonly SetorDAO _setorDAO;
 
         public SetorController()
         {
-            _context = new CarrinhoContext();
             _setorDAO = new SetorDAO();
         }
 
         // GET: Setor
-        public async  Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
-            return View( await _setorDAO.Setores());
+            return View(await _setorDAO.Setores());
         }
 
         // GET: Setor/Details/5
@@ -100,7 +97,7 @@ namespace Carrinho.Controllers
             {
                 try
                 {
-                 _setorDAO.Update(setor);
+                    _setorDAO.Update(setor);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,7 +123,7 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var setor = await _setorDAO.getSetorById(id);;
+            var setor = await _setorDAO.getSetorById(id); ;
             if (setor == null)
             {
                 return NotFound();
@@ -144,6 +141,6 @@ namespace Carrinho.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+
     }
 }

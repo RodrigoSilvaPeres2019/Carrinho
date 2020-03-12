@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Carrinho.DAO
         }
 
         public async Task<List<Setor>> Setores() => await _context.Setor.ToListAsync();
-
+        public IEnumerable SetoresEnumerable() => _context.Setor;
         public async Task<Setor> getSetorById(int? id) => await _context.Setor.FirstOrDefaultAsync(s => s.Id == id);
 
         public async void Update(Setor setor)

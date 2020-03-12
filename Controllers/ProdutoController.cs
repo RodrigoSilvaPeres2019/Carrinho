@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Carrinho.Dados;
 using Carrinho.Models;
+using Carrinho.DAO;
 
 namespace Carrinho.Controllers
 {
@@ -14,16 +15,19 @@ namespace Carrinho.Controllers
     {
         private readonly CarrinhoContext _context;
 
-        public ProdutoController(CarrinhoContext context)
+        private readonly ProdutoDAO _produtoDAO;
+        private readonly SetorDAO _setorDAO;
+        public ProdutoController()
         {
-            _context = context;
+            _context = new CarrinhoContext();
+            _produtoDAO = new ProdutoDAO();
+            _setorDAO = new SetorDAO();
         }
 
         // GET: Produto
         public async Task<IActionResult> Index()
         {
-            var produtos = await _context.Produto.Include(p => p.Setor).ToListAsync();
-            return View(produtos);
+            return View(await _produtoDAO.Produtos());
         }
 
         // GET: Produto/Details/5
@@ -34,8 +38,7 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto.Include(p => p.Setor)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var produto = await _produtoDAO.getProdutoById(id);
             if (produto == null)
             {
                 return NotFound();
@@ -45,9 +48,9 @@ namespace Carrinho.Controllers
         }
 
         // GET: Produto/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {   
-            ViewBag.SetorId = new SelectList(_context.Setor, "Id", "Nome");
+            ViewBag.SetorId = new SelectList(await _setorDAO.Setores(), "Id", "Nome");
             return View();
         }
 
@@ -60,10 +63,7 @@ namespace Carrinho.Controllers
         {
             if (ModelState.IsValid)
             {
-                System.Console.WriteLine("Numro setor" + SetorId + "************");
-                produto.Setor = await _context.Setor.FindAsync(SetorId);
-                _context.Add(produto);
-                await _context.SaveChangesAsync();
+                produto = await _produtoDAO.Add(produto, SetorId);
                 return RedirectToAction(nameof(Index));
             }
             return View(produto);
@@ -77,10 +77,9 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto.Include(p => p.Setor)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var produto = await _produtoDAO.getProdutoById(id);
 
-            ViewBag.SetorId = new SelectList(_context.Setor, "Id", "Nome", produto.Setor.Id);
+            ViewBag.SetorId = new SelectList(await _setorDAO.Setores(), "Id", "Nome", produto.Setor.Id);
             if (produto == null)
             {
                 return NotFound();
@@ -104,13 +103,11 @@ namespace Carrinho.Controllers
             {
                 try
                 {
-                    produto.Setor = await _context.Setor.FindAsync(SetorId);
-                    _context.Update(produto);
-                    await _context.SaveChangesAsync();
+                    produto = await _produtoDAO.Update(produto, SetorId);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProdutoExists(produto.Id))
+                    if (!_produtoDAO.ProdutoExists(produto.Id))
                     {
                         return NotFound();
                     }
@@ -132,11 +129,8 @@ namespace Carrinho.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var produto = await _produtoDAO.getProdutoById(id);
 
-            
-            
             if (produto == null)
             {
                 return NotFound();
@@ -148,17 +142,10 @@ namespace Carrinho.Controllers
         // POST: Produto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var produto = await _context.Produto.FindAsync(id);
-            _context.Produto.Remove(produto);
-            await _context.SaveChangesAsync();
+            _produtoDAO.Remove(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ProdutoExists(int id)
-        {
-            return _context.Produto.Any(e => e.Id == id);
         }
     }
 }

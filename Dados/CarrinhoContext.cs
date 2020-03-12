@@ -5,13 +5,6 @@ namespace Carrinho.Dados
 {
     public class CarrinhoContext : DbContext
     {
-        /* public CarrinhoContext(DbContextOptions<CarrinhoContext> options) : base(options)
-        {
-        } */
-       /*  public CarrinhoContext()
-        {     
-        } */
-
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Setor> Setor { get; set; }
 
