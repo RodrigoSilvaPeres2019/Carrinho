@@ -16,6 +16,17 @@ namespace Carrinho.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2");
 
+            modelBuilder.Entity("Carrinho.Models.CarrinhoCompras", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("vendas");
+                });
+
             modelBuilder.Entity("Carrinho.Models.CarrinhoProdutos", b =>
                 {
                     b.Property<int>("ProdutoId")
@@ -28,18 +39,7 @@ namespace Carrinho.Migrations
 
                     b.HasIndex("CarrinhoId");
 
-                    b.ToTable("CarrinhoProduto");
-                });
-
-            modelBuilder.Entity("Carrinho.Models.ComprasEfetuadas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Compras");
+                    b.ToTable("vendas_produtos");
                 });
 
             modelBuilder.Entity("Carrinho.Models.Produto", b =>
@@ -60,7 +60,7 @@ namespace Carrinho.Migrations
 
                     b.Property<decimal>("Preco")
                         .HasColumnName("Preco")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("numeric(10,5)");
 
                     b.Property<int?>("SetorId")
                         .HasColumnType("INTEGER");
@@ -69,7 +69,7 @@ namespace Carrinho.Migrations
 
                     b.HasIndex("SetorId");
 
-                    b.ToTable("Produto");
+                    b.ToTable("produtos");
                 });
 
             modelBuilder.Entity("Carrinho.Models.Setor", b =>
@@ -84,7 +84,7 @@ namespace Carrinho.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Setor");
+                    b.ToTable("setores");
                 });
 
             modelBuilder.Entity("Carrinho.Models.CarrinhoProdutos", b =>
@@ -95,7 +95,7 @@ namespace Carrinho.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Carrinho.Models.ComprasEfetuadas", "Carrinho")
+                    b.HasOne("Carrinho.Models.CarrinhoCompras", "Carrinho")
                         .WithMany("ListaProdutos")
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Carrinho.Controllers
 {
-    public class ComprarController : Controller
+    public class CarrinhoController : Controller
     {
          private readonly CarrinhoContext _context;
 
-        public ComprarController(){
+        public CarrinhoController(){
             _context = new CarrinhoContext();
         }
         public async Task<IActionResult> Index()
@@ -20,22 +20,24 @@ namespace Carrinho.Controllers
             var produtos = await _context.Produto.Include(p => p.Setor).ToListAsync();
             return View(produtos);
         }
-        public async Task<IActionResult> Add(int? id)
+        public async Task<IActionResult> Add(int? id, int? idCarrinho)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var carrinho = new ComprasEfetuadas();
+            var carrinho = await _context.Carrinho.FindAsync(idCarrinho);
             var produto = await _context.Produto.FindAsync(id);
             carrinho.ListaProdutos.Add(new CarrinhoProdutos(){Produto = produto});
-            _context.Compras.Add(carrinho);
+            _context.Carrinho.Update(carrinho);
             await _context.SaveChangesAsync();
             if (produto == null)
             {
                 return NotFound();
             }
-            return View(produto);
+            ViewBag.SetorId = new SelectList(_context.Setor, "Id", "Nome");
+            var produtos = await _context.Produto.Include(p => p.Setor).ToListAsync();
+            return View(produtos);
         }
     }
 }

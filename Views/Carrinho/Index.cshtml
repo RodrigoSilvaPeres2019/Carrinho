@@ -41,7 +41,8 @@
                 @Html.DisplayFor(modelItem => item.Setor.Nome)
             </td>
             <td>
-                <a href=@Url.ActionLink("Add","Comprar", new { id = item.Id })> Comprar</a> 
+                <a asp-controller="Carrinho" asp-action="Add" asp-route-id="@item.Id" >Comprar</a>
+                @* <a href=@Url.ActionLink("Add","Carrinho", new { id = item.Id })> Comprar</a>  *@
             </td>
         </tr>
 }

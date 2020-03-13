@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Carrinho.Dados
 {
-    public class CacrrinhoComprasConfiguration : IEntityTypeConfiguration<ComprasEfetuadas>
+    public class CacrrinhoComprasConfiguration : IEntityTypeConfiguration<CarrinhoCompras>
     {
-        public void Configure(EntityTypeBuilder<ComprasEfetuadas> builder)
+        public void Configure(EntityTypeBuilder<CarrinhoCompras> builder)
         {
-            
+            builder
+            .ToTable("vendas");
         }
     }
 }

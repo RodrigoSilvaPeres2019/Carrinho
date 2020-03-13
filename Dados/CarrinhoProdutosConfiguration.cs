@@ -8,8 +8,10 @@ namespace Carrinho.Dados
     {
         public void Configure(EntityTypeBuilder<CarrinhoProdutos> builder)
         {
-            
-            builder.HasKey(cp => new {cp.ProdutoId, cp.CarrinhoId});
+            builder
+            .ToTable("vendas_produtos");
+            builder
+            .HasKey(cp => new {cp.ProdutoId, cp.CarrinhoId});
 
             builder
                 .HasOne(cp => cp.Carrinho)

@@ -2,24 +2,12 @@
 
 namespace Carrinho.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Compras",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Compras", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Setor",
+                name: "setores",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -28,33 +16,45 @@ namespace Carrinho.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Setor", x => x.Id);
+                    table.PrimaryKey("PK_setores", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produto",
+                name: "vendas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_vendas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "produtos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: false),
-                    Preco = table.Column<decimal>(nullable: false),
+                    Preco = table.Column<decimal>(type: "numeric(10,5)", nullable: false),
                     Descricao = table.Column<string>(nullable: true),
                     SetorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produto", x => x.Id);
+                    table.PrimaryKey("PK_produtos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Produto_Setor_SetorId",
+                        name: "FK_produtos_setores_SetorId",
                         column: x => x.SetorId,
-                        principalTable: "Setor",
+                        principalTable: "setores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CarrinhoProduto",
+                name: "vendas_produtos",
                 columns: table => new
                 {
                     ProdutoId = table.Column<int>(nullable: false),
@@ -62,45 +62,45 @@ namespace Carrinho.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarrinhoProduto", x => new { x.ProdutoId, x.CarrinhoId });
+                    table.PrimaryKey("PK_vendas_produtos", x => new { x.ProdutoId, x.CarrinhoId });
                     table.ForeignKey(
-                        name: "FK_CarrinhoProduto_Produto_CarrinhoId",
+                        name: "FK_vendas_produtos_produtos_CarrinhoId",
                         column: x => x.CarrinhoId,
-                        principalTable: "Produto",
+                        principalTable: "produtos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CarrinhoProduto_Compras_ProdutoId",
+                        name: "FK_vendas_produtos_vendas_ProdutoId",
                         column: x => x.ProdutoId,
-                        principalTable: "Compras",
+                        principalTable: "vendas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarrinhoProduto_CarrinhoId",
-                table: "CarrinhoProduto",
-                column: "CarrinhoId");
+                name: "IX_produtos_SetorId",
+                table: "produtos",
+                column: "SetorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produto_SetorId",
-                table: "Produto",
-                column: "SetorId");
+                name: "IX_vendas_produtos_CarrinhoId",
+                table: "vendas_produtos",
+                column: "CarrinhoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CarrinhoProduto");
+                name: "vendas_produtos");
 
             migrationBuilder.DropTable(
-                name: "Produto");
+                name: "produtos");
 
             migrationBuilder.DropTable(
-                name: "Compras");
+                name: "vendas");
 
             migrationBuilder.DropTable(
-                name: "Setor");
+                name: "setores");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Carrinho.Dados
         void IEntityTypeConfiguration<Produto>.Configure(EntityTypeBuilder<Produto> builder)
         {
             builder
-            .ToTable("Produto");
+            .ToTable("produtos");
 
             builder
             .Property(p => p.Id)
@@ -22,6 +22,7 @@ namespace Carrinho.Dados
 
             builder
             .Property(p => p.Preco)
+            .HasColumnType("numeric(10,5)")
             .HasColumnName("Preco");
            
 

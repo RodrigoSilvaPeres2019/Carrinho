@@ -2,12 +2,12 @@ using System.Collections.Generic;
 
 namespace Carrinho.Models
 {
-    public class ComprasEfetuadas
+    public class CarrinhoCompras
     {
      public int Id { get; set; }   
      public List<CarrinhoProdutos> ListaProdutos { get; set; }
      
-     public ComprasEfetuadas()
+     public CarrinhoCompras()
      {
         ListaProdutos = new List<CarrinhoProdutos>();
      }

@@ -9,7 +9,7 @@ namespace Carrinho.Dados
         public void Configure(EntityTypeBuilder<Setor> builder)
         {
             builder
-            .ToTable("Setor");
+            .ToTable("setores");
 
             builder
             .Property(s => s.Id)
