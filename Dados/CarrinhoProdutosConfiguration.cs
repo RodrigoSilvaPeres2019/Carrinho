@@ -11,7 +11,7 @@ namespace Carrinho.Dados
             builder
             .ToTable("vendas_produtos");
             builder
-            .HasKey(cp => new {cp.ProdutoId, cp.CarrinhoId});
+            .HasKey(cp => new { cp.CarrinhoId, cp.ProdutoId});
 
             builder
                 .HasOne(cp => cp.Carrinho)

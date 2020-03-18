@@ -22,6 +22,9 @@ namespace Carrinho.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("EstadoCompra")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("vendas");
@@ -29,15 +32,18 @@ namespace Carrinho.Migrations
 
             modelBuilder.Entity("Carrinho.Models.CarrinhoProdutos", b =>
                 {
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("CarrinhoId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ProdutoId", "CarrinhoId");
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("INTEGER");
 
-                    b.HasIndex("CarrinhoId");
+                    b.Property<int>("QtdProduto")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CarrinhoId", "ProdutoId");
+
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("vendas_produtos");
                 });

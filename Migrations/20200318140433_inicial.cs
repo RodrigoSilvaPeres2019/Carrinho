@@ -2,7 +2,7 @@
 
 namespace Carrinho.Migrations
 {
-    public partial class initial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,8 @@ namespace Carrinho.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    EstadoCompra = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,11 +59,12 @@ namespace Carrinho.Migrations
                 columns: table => new
                 {
                     ProdutoId = table.Column<int>(nullable: false),
-                    CarrinhoId = table.Column<int>(nullable: false)
+                    CarrinhoId = table.Column<int>(nullable: false),
+                    QtdProduto = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_vendas_produtos", x => new { x.ProdutoId, x.CarrinhoId });
+                    table.PrimaryKey("PK_vendas_produtos", x => new { x.CarrinhoId, x.ProdutoId });
                     table.ForeignKey(
                         name: "FK_vendas_produtos_produtos_CarrinhoId",
                         column: x => x.CarrinhoId,
@@ -83,9 +85,9 @@ namespace Carrinho.Migrations
                 column: "SetorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_vendas_produtos_CarrinhoId",
+                name: "IX_vendas_produtos_ProdutoId",
                 table: "vendas_produtos",
-                column: "CarrinhoId");
+                column: "ProdutoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -20526,11 +20526,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Carrinho/Index.cshtml",
-      "TargetPath": "Views\\Carrinho\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -20563,6 +20558,11 @@
     {
       "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Produto/Delete.cshtml",
       "TargetPath": "Views\\Produto\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Views/Carrinho/FinalizarCompra.cshtml",
+      "TargetPath": "Views\\Carrinho\\FinalizarCompra.cshtml",
       "FileKind": "mvc"
     },
     {

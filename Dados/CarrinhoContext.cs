@@ -7,10 +7,7 @@ namespace Carrinho.Dados
     {
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Setor> Setor { get; set; }
-
         public DbSet<CarrinhoCompras> Carrinho { get; set; }
-
-        public DbSet<CarrinhoProdutos> CarrinhoProduto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

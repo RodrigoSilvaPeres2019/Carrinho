@@ -1,12 +1,31 @@
 @model IEnumerable<Carrinho.Models.Produto>
 
 @{
-    ViewData["Title"] = "Comprar";
+    ViewData["Title"] = "Index";
 }
 
-<div class="form-group">
-    @Html.DropDownList("SetorId")
-</div>
+<h1>@ViewBag.IdCarrinho</h1>
+<table>
+    <thead>
+        <th>
+            N intens
+        </th>
+        <th>
+            Valor Total
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td id="nItens">
+                0
+            </td>
+            <td id="valorTotal">
+                0
+            </td>
+        </tr>        
+
+    </tbody>
+</table>
 <table class="table">
     <thead>
         <tr>
@@ -27,11 +46,11 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
+        <tr id="produto@(@item.Id)">
+            <td >
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
-            <td>
+            <td id="preco@(@item.Id)">
                 @Html.DisplayFor(modelItem => item.Preco)
             </td>
             <td>
@@ -41,9 +60,30 @@
                 @Html.DisplayFor(modelItem => item.Setor.Nome)
             </td>
             <td>
-                <a href=@Url.ActionLink("Add","Carrinho", new { id = item.Id })> Comprar</a> 
+                <input type="number" name="Quantidade" id="Qtd@(@item.Id)" value="1">
+            </td>
+            <td>
+                <a href="#" onclick="addCarrinho(@item.Id, @ViewBag.IdCarrinho);">Comprar</a> |
             </td>
         </tr>
 }
     </tbody>
 </table>
+@Html.ActionLink("Finalizar", "FinalizarCompra", "Carrinho", new { id = @ViewBag.IdCarrinho }, new { @class = "btn btn-danger" })
+<script type="text/javascript" src="~/wwwroot/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    function addCarrinho(idProduto,idCar){
+        var url = "@Url.Action("AddCarrinho", "Carrinho")";
+        var idInput = "#Qtd".concat(idProduto);
+        alert(idInput);
+        $.post(url, {id : idProduto, idCarrinho : idCar, qtd : $(idInput).val()}, atualiza);
+    }
+    function atualiza(resp){
+        var nItens = $("#nItens").text();
+        var valorTotal = $("#valorTotal").text();
+        $("#nItens").html(Number(nItens) + 1);
+        alert(resp.preco)
+        $("#valorTotal").html(Number(valorTotal) + Number(resp.preco));
+    }
+
+</script>
