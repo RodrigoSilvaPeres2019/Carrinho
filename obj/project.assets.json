@@ -8641,11 +8641,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj",
+      "projectUniqueName": "/home/rodrigo_peres/Área de Trabalho/Carrinho/Carrinho.csproj",
       "projectName": "Carrinho",
-      "projectPath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/Carrinho.csproj",
+      "projectPath": "/home/rodrigo_peres/Área de Trabalho/Carrinho/Carrinho.csproj",
       "packagesPath": "/home/rodrigo_peres/.nuget/packages/",
-      "outputPath": "/home/rodrigo_peres/Área de Trabalho/Projeto Carrinho/Carrinho/obj/",
+      "outputPath": "/home/rodrigo_peres/Área de Trabalho/Carrinho/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/rodrigo_peres/.nuget/NuGet/NuGet.Config"
@@ -8711,7 +8711,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
       }
     }
   }

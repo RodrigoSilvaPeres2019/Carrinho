@@ -1,4 +1,48 @@
+@model IEnumerable<Carrinho.Models.CarrinhoProdutos>
 @{
     ViewData["Title"] = "Finalizar Compra";
 }
-<h2>COMPRAA FINALIZADA COM SUCESSO!!!!!!!!!!</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Setor.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr id="produto@(@item.Produto.Id)">
+            <td >
+                @Html.DisplayFor(modelItem => item.Produto.Nome)
+            </td>
+            <td id="preco@(@item.Produto.Id)">
+                @Html.DisplayFor(modelItem => item.Produto.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdProduto)
+            </td>
+            <td>
+                @* <input type="number" name="Quantidade" id="Qtd@(@item.Id)" value="1"> *@
+            </td>
+            <td>
+                @* <a href="#" onclick="addCarrinho(@item.Id, @ViewBag.IdCarrinho);">Comprar</a> | *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@Html.ActionLink("Finalizar", "Confirmar", "Carrinho", new { id = @ViewBag.IdCarrinho }, new { @class = "btn btn-danger" })

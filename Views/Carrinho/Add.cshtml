@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>@ViewBag.IdCarrinho</h1>
+<h1>Bem vindo carrinho de numero @ViewBag.IdCarrinho</h1>
 <table>
     <thead>
         <th>
@@ -63,7 +63,7 @@
                 <input type="number" name="Quantidade" id="Qtd@(@item.Id)" value="1">
             </td>
             <td>
-                <a href="#" onclick="addCarrinho(@item.Id, @ViewBag.IdCarrinho);">Comprar</a> |
+                <a id="Comprar@(@item.Id)" href="#" onclick="addCarrinho(@item.Id, @ViewBag.IdCarrinho);" >Comprar</a>
             </td>
         </tr>
 }
@@ -72,18 +72,41 @@
 @Html.ActionLink("Finalizar", "FinalizarCompra", "Carrinho", new { id = @ViewBag.IdCarrinho }, new { @class = "btn btn-danger" })
 <script type="text/javascript" src="~/wwwroot/lib/jquery/dist/jquery.min.js"></script>
 <script>
+    
     function addCarrinho(idProduto,idCar){
-        var url = "@Url.Action("AddCarrinho", "Carrinho")";
+        
         var idInput = "#Qtd".concat(idProduto);
-        alert(idInput);
-        $.post(url, {id : idProduto, idCarrinho : idCar, qtd : $(idInput).val()}, atualiza);
+        var comprar = "#Comprar".concat(idProduto);
+        alert($(comprar).text() == "Remover");
+        if($(comprar).text() == "Remover"){
+            var url = "@Url.Action("RemoverCarrinho", "Carrinho")";
+            $.post(url, {id : idProduto, idCarrinho : idCar, qtd : $(idInput).val()}, atualiza);
+        }
+        else{
+            alert("Foi1");
+            var url = "@Url.Action("AddCarrinho", "Carrinho")";
+            $.post(url, {id : idProduto, idCarrinho : idCar, qtd : $(idInput).val()}, atualiza);
+        }
+
     }
     function atualiza(resp){
         var nItens = $("#nItens").text();
         var valorTotal = $("#valorTotal").text();
-        $("#nItens").html(Number(nItens) + 1);
-        alert(resp.preco)
-        $("#valorTotal").html(Number(valorTotal) + Number(resp.preco));
+        var idInput = "#Qtd".concat(resp.id);
+        var comprar = "#Comprar".concat(resp.id);
+        alert($(comprar).text() == "Remover");
+        if($(comprar).text() == "Remover"){
+            $("#nItens").html(Number(nItens) -  Number($(idInput).val()));
+            $("#valorTotal").html(Number(valorTotal) - Number(resp.preco));
+            $(comprar).html("Comprar")           
+        }
+        else{
+            $("#nItens").html(Number(nItens) +  Number($(idInput).val()));
+            $("#valorTotal").html(Number(valorTotal) + Number(resp.preco));
+            $(comprar).html("Remover")           
+        }
+        
+        
     }
 
 </script>
